@@ -3,241 +3,147 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For My Pyriiii Motiii 💞🧿</title>
+<title>Something Special For You 💞</title>
+
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Pacifico&display=swap');
 
-  * { box-sizing: border-box; }
-  html, body { margin: 0; min-height: 100%; }
-  body {
-    font-family: "Cormorant Garamond", Georgia, serif;
-    background:
-      radial-gradient(circle at 20% 15%, rgba(255,255,255,.75), transparent 25%),
-      radial-gradient(circle at 85% 80%, rgba(255,190,215,.5), transparent 28%),
-      linear-gradient(135deg, #fff4f8 0%, #ffdce9 48%, #ffc2d9 100%);
-    color: #7c2850;
-    overflow-x: hidden;
-  }
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:"Cormorant Garamond",Georgia,serif}
+body{color:#7c2850;overflow-x:hidden;background:linear-gradient(135deg,#fff4f8,#ffdce9 48%,#ffc2d9)}
 
-  .page {
-    min-height: 100vh;
-    padding: 55px 22px 85px;
-    display: none;
-    position: relative;
-    overflow: hidden;
-  }
-  .page.active { display: flex; flex-direction: column; align-items: center; }
+#lock{
+ position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;
+ overflow:hidden;text-align:center;
+ background:radial-gradient(circle at 50% 35%,rgba(255,255,255,.9),transparent 28%),
+ linear-gradient(135deg,#fff1f7,#ffc9dd,#ffb5d1);
+ transition:opacity 1.5s ease,visibility 1.5s ease;
+}
+#lock.hide{opacity:0;visibility:hidden;pointer-events:none}
 
-  .glow {
-    position: absolute; border-radius: 50%; filter: blur(3px);
-    opacity: .35; pointer-events: none;
-    animation: float 7s ease-in-out infinite;
-  }
-  .g1 { width: 180px; height: 180px; background:#fff; top:-50px; left:-50px; }
-  .g2 { width: 250px; height: 250px; background:#ff9fc4; bottom:-100px; right:-80px; animation-delay: -3s; }
+.orb{position:absolute;border-radius:50%;filter:blur(5px);pointer-events:none}
+.o1{width:350px;height:350px;left:-130px;top:-120px;background:rgba(255,255,255,.5);animation:drift 8s infinite}
+.o2{width:420px;height:420px;right:-160px;bottom:-170px;background:rgba(255,90,150,.2);animation:drift 10s infinite reverse}
+.flower{position:absolute;font-size:42px;opacity:.6;animation:float 6s ease-in-out infinite}
+.f1{left:7%;bottom:12%}.f2{right:7%;top:12%;animation-delay:-2s}.f3{left:15%;top:20%;font-size:28px;animation-delay:-4s}.f4{right:15%;bottom:20%;font-size:30px;animation-delay:-1s}
 
-  .flowers { position:absolute; inset:0; pointer-events:none; }
-  .flower { position:absolute; font-size:clamp(30px, 6vw, 58px); opacity:.55; animation: sway 4s ease-in-out infinite; }
-  .f1 { left:4%; bottom:7%; transform:rotate(-12deg); }
-  .f2 { right:5%; top:8%; transform:rotate(14deg); animation-delay:-1s; }
-  .f3 { left:8%; top:18%; font-size:34px; animation-delay:-2s; }
-  .f4 { right:9%; bottom:13%; font-size:38px; animation-delay:-3s; }
+.lockCard{
+ width:min(800px,92vw);padding:48px 25px;border-radius:38px;position:relative;z-index:2;
+ background:rgba(255,255,255,.58);border:1px solid rgba(255,255,255,.9);
+ backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+ box-shadow:0 30px 90px rgba(126,35,76,.2),inset 0 1px white;
+ animation:appear 1.2s ease;
+}
+.small{font-size:14px;letter-spacing:4px;text-transform:uppercase;color:#b34d77}
+h1{font-family:Pacifico,cursive;font-weight:400;color:#c52f6c;line-height:1.2}
+.lockTitle{font-size:clamp(38px,9vw,75px);margin:15px 0}
+.subtitle{font-size:clamp(19px,4vw,28px);color:#74304f}
+.divider{margin:24px 0;color:#dc5a88;font-size:25px;letter-spacing:8px}
+.timer{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap}
+.box{min-width:80px;padding:16px 8px;border-radius:20px;background:rgba(255,255,255,.75);box-shadow:0 8px 25px rgba(148,46,87,.12);animation:pulse 2s infinite}
+.num{font-family:Pacifico,cursive;font-size:clamp(28px,6vw,46px);color:#cf3c73;line-height:1}
+.label{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#a65375;margin-top:8px}
+.colon{font-family:Pacifico;color:#d84b7d;font-size:28px;animation:blink 1s infinite}
+.wait{font-size:18px;color:#8d4564;margin-top:28px}
 
-  .card {
-    width: min(850px, 94vw);
-    margin:auto;
-    padding: clamp(28px, 6vw, 62px);
-    border: 1px solid rgba(255,255,255,.8);
-    border-radius: 34px;
-    background: rgba(255,255,255,.62);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 22px 70px rgba(146,47,88,.17), inset 0 1px 0 white;
-    position:relative;
-    z-index:2;
-    text-align:center;
-  }
+#reveal{position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;text-align:center;background:radial-gradient(circle,#fff,#ffdce9 45%,#ffabc9)}
+#reveal.show{display:flex}
+.revealText{font-family:Pacifico;color:#c52f6c;font-size:clamp(38px,10vw,85px);animation:reveal 1.8s ease}
+.revealSub{font-size:clamp(20px,4vw,30px);color:#74304f;margin-top:15px}
 
-  .eyebrow {
-    font-size: 14px; letter-spacing: 4px; text-transform:uppercase;
-    color:#b34d77; margin-bottom:12px;
-  }
-  h1 {
-    font-family: Pacifico, cursive;
-    font-size: clamp(32px, 7vw, 65px);
-    line-height:1.2; margin:0 0 24px;
-    color:#c02f69;
-    text-shadow: 0 4px 18px rgba(192,47,105,.18);
-  }
-  h2 {
-    font-family: Pacifico, cursive;
-    font-weight:400; color:#c02f69;
-    font-size:clamp(25px,5vw,42px); margin:0 0 25px;
-  }
-  .message {
-    font-size:clamp(20px,3.5vw,27px);
-    line-height:1.65; color:#71314e;
-    text-align:left;
-  }
-  .center { text-align:center; }
-  .heart { color:#e73578; }
-  .divider { margin:25px auto; color:#dc5a88; font-size:25px; letter-spacing:10px; }
+#site{display:none}
+#site.show{display:block;animation:siteIn 1.8s ease}
+.page{min-height:100vh;padding:55px 22px 100px;display:none;position:relative;overflow:hidden}
+.page.active{display:flex;flex-direction:column;align-items:center}
+.glow{position:absolute;border-radius:50%;filter:blur(3px);opacity:.35;pointer-events:none;animation:float 7s infinite}
+.g1{width:180px;height:180px;background:#fff;top:-50px;left:-50px}.g2{width:250px;height:250px;background:#ff9fc4;bottom:-100px;right:-80px}
+.flowers{position:absolute;inset:0;pointer-events:none}.petal{position:absolute;font-size:clamp(30px,6vw,58px);opacity:.55;animation:sway 4s infinite}
+.p1{left:4%;bottom:7%}.p2{right:5%;top:8%}.p3{left:8%;top:18%;font-size:34px}.p4{right:9%;bottom:13%;font-size:38px}
+.card{width:min(850px,94vw);margin:auto;padding:clamp(28px,6vw,62px);border:1px solid rgba(255,255,255,.8);border-radius:34px;background:rgba(255,255,255,.62);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 22px 70px rgba(146,47,88,.17),inset 0 1px white;position:relative;z-index:2;text-align:center}
+.eyebrow{font-size:14px;letter-spacing:4px;text-transform:uppercase;color:#b34d77;margin-bottom:12px}
+.card h1{font-size:clamp(32px,7vw,65px);margin:0 0 24px}.card h2{font-family:Pacifico;font-weight:400;color:#c02f69;font-size:clamp(25px,5vw,42px);margin:0 0 25px}
+.message{font-size:clamp(20px,3.5vw,27px);line-height:1.65;color:#71314e;text-align:left}
+.next{margin-top:30px;padding:12px 26px;background:#d83e78;color:white;border:0;font-family:inherit;font-size:19px;border-radius:999px;cursor:pointer;box-shadow:0 8px 22px rgba(216,62,120,.25)}
+.nav{position:fixed;z-index:20;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:10px;padding:8px;border-radius:999px;background:rgba(255,255,255,.82);backdrop-filter:blur(12px);box-shadow:0 10px 35px rgba(120,32,72,.18)}
+.nav button{border:0;cursor:pointer;font-family:inherit;font-size:17px;color:#8d3158;background:#ffe8f0;padding:10px 18px;border-radius:999px}.nav button.active{background:#d83e78;color:white}
+.love-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px 20px;text-align:center;font-size:clamp(18px,3vw,24px);line-height:1.5;color:#71314e}.final-line{margin-top:28px;font-family:Pacifico;color:#c02f69;font-size:28px}
 
-  .nav {
-    position:fixed; z-index:20; bottom:18px; left:50%;
-    transform:translateX(-50%);
-    display:flex; gap:10px; align-items:center;
-    padding:8px; border-radius:999px;
-    background:rgba(255,255,255,.82); backdrop-filter:blur(12px);
-    box-shadow:0 10px 35px rgba(120,32,72,.18);
-  }
-  button {
-    border:0; cursor:pointer; font-family:inherit;
-    font-size:17px; color:#8d3158;
-    background:#ffe8f0; padding:10px 18px; border-radius:999px;
-    transition:.25s;
-  }
-  button:hover { transform:translateY(-2px); background:#ffc6da; }
-  button.active { background:#d83e78; color:white; }
-  .next {
-    margin-top:30px; padding:12px 26px;
-    background:#d83e78; color:white; font-size:19px;
-    box-shadow:0 8px 22px rgba(216,62,120,.25);
-  }
-
-  .love-list {
-    display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:8px 20px; text-align:center;
-    font-size:clamp(18px,3vw,24px); line-height:1.5;
-    color:#71314e;
-  }
-  .final-line { margin-top:28px; font-family:Pacifico,cursive; color:#c02f69; font-size:28px; }
-
-  .sparkle {
-    position:absolute; color:white; font-size:18px; opacity:.75;
-    animation: sparkle 3s ease-in-out infinite;
-  }
-
-  @keyframes float { 50% { transform:translateY(18px); } }
-  @keyframes sway { 50% { transform:rotate(8deg) translateY(-6px); } }
-  @keyframes sparkle { 0%,100%{opacity:.15;transform:scale(.7)} 50%{opacity:1;transform:scale(1.2)} }
-
-  @media (max-width:600px) {
-    .page { padding-top:28px; padding-bottom:95px; }
-    .card { border-radius:25px; }
-    .love-list { grid-template-columns:1fr; }
-    .nav button { padding:9px 13px; font-size:15px; }
-  }
+@keyframes drift{50%{transform:translate(25px,20px) scale(1.08)}}@keyframes float{50%{transform:translateY(-22px)}}@keyframes sway{50%{transform:rotate(8deg) translateY(-6px)}}@keyframes appear{from{opacity:0;transform:translateY(30px) scale(.96)}to{opacity:1;transform:none}}@keyframes pulse{50%{transform:translateY(-3px)}}@keyframes blink{50%{opacity:.25}}@keyframes reveal{from{opacity:0;transform:scale(.7) translateY(30px)}to{opacity:1;transform:none}}@keyframes siteIn{from{opacity:0;transform:scale(.98)}to{opacity:1;transform:none}}
+@media(max-width:600px){.lockCard{padding:40px 15px;border-radius:28px}.box{min-width:65px;border-radius:16px}.colon{font-size:20px}.page{padding-top:28px}.card{border-radius:25px}.love-list{grid-template-columns:1fr}.nav button{padding:9px 13px;font-size:15px}}
 </style>
 </head>
+
 <body>
 
-<!-- PAGE 1 -->
+<!-- LOCK SCREEN -->
+<div id="lock">
+  <div class="orb o1"></div><div class="orb o2"></div>
+  <div class="flower f1">🌷</div><div class="flower f2">🌷</div>
+  <div class="flower f3">🌸</div><div class="flower f4">🌷</div>
+
+  <div class="lockCard">
+    <div class="small">A little surprise is waiting for you</div>
+    <h1 class="lockTitle">Shhh… 🤫💞</h1>
+    <div class="subtitle">Something very special is going to open soon…</div>
+    <div class="divider">🌷 ✦ 🌸 ✦ 🌷</div>
+
+    <div class="timer">
+      <div class="box"><div class="num" id="d">00</div><div class="label">Days</div></div>
+      <div class="colon">:</div>
+      <div class="box"><div class="num" id="h">00</div><div class="label">Hours</div></div>
+      <div class="colon">:</div>
+      <div class="box"><div class="num" id="m">00</div><div class="label">Minutes</div></div>
+      <div class="colon">:</div>
+      <div class="box"><div class="num" id="s">00</div><div class="label">Seconds</div></div>
+    </div>
+
+    <div class="wait">Just a little more patience 💗</div>
+  </div>
+</div>
+
+<!-- REVEAL -->
+<div id="reveal">
+  <div>
+    <div class="revealText">It's time… 💞</div>
+    <div class="revealSub">Happy Birthday, Meri Pyriiii Motiii 🌷🧿</div>
+  </div>
+</div>
+
+<!-- MAIN SITE -->
+<div id="site">
+
 <section class="page active" id="page1">
   <div class="glow g1"></div><div class="glow g2"></div>
-  <div class="flowers">
-    <div class="flower f1">🌷</div><div class="flower f2">🌷</div>
-    <div class="flower f3">🌸</div><div class="flower f4">🌷</div>
-  </div>
-  <div class="sparkle" style="left:18%;top:10%">✦</div>
-  <div class="sparkle" style="right:20%;top:28%;animation-delay:1s">✧</div>
-
+  <div class="flowers"><div class="petal p1">🌷</div><div class="petal p2">🌷</div><div class="petal p3">🌸</div><div class="petal p4">🌷</div></div>
   <div class="card">
     <div class="eyebrow">A little something for you</div>
     <h1>Happiest Birthday<br>to youuu 💞🧿</h1>
     <div class="divider">🌷 ✦ 🌸 ✦ 🌷</div>
-    <div class="message">
-      <strong>Meri Pyriiii Motiii 💞🧿</strong><br><br>
-      Moti Tereko yaad h kya jb hum phli bar mille the toh ksa tha sb kuch m ksa tha tu kesi thi hum logo kse the
-    </div>
+    <div class="message"><strong>Meri Pyriiii Motiii 💞🧿</strong><br><br>Moti Tereko yaad h kya jb hum phli bar mille the toh ksa tha sb kuch m ksa tha tu kesi thi hum logo kse the</div>
     <button class="next" onclick="showPage(2)">Next 🌷</button>
   </div>
 </section>
 
-<!-- PAGE 2 -->
 <section class="page" id="page2">
   <div class="glow g1"></div><div class="glow g2"></div>
-  <div class="flowers">
-    <div class="flower f1">🌸</div><div class="flower f2">🌷</div>
-    <div class="flower f3">🌷</div><div class="flower f4">🌸</div>
-  </div>
-  <div class="sparkle" style="left:12%;top:35%">♡</div>
-  <div class="sparkle" style="right:12%;top:18%;animation-delay:1.4s">♡</div>
-
+  <div class="flowers"><div class="petal p1">🌸</div><div class="petal p2">🌷</div><div class="petal p3">🌷</div><div class="petal p4">🌸</div></div>
   <div class="card">
     <div class="eyebrow">One memory I still carry</div>
     <h2>That first time… 🥺</h2>
-    <div class="message">
-      mujhe aaj bhi yaad h jb hum phli bar face to face aaye the jo tere face pr darr bhi tha excitement bhi thi hr emotion tha uska alg he mza tha kuch and aaj bhi mujhe yaad h kb kya hua tha ky nhi hua tha details m kyuki I want to work things out,
-      <br><br>
-      Sooooo aap ye btao <strong>shadi kroge ky mere se🥺</strong>
-    </div>
+    <div class="message">mujhe aaj bhi yaad h jb hum phli bar face to face aaye the jo tere face pr darr bhi tha excitement bhi thi hr emotion tha uska alg he mza tha kuch and aaj bhi mujhe yaad h kb kya hua tha ky nhi hua tha details m kyuki I want to work things out,<br><br>Sooooo aap ye btao <strong>shadi kroge ky mere se🥺</strong></div>
     <div class="divider">🌷 💗 🌷</div>
     <button class="next" onclick="showPage(3)">One last thing… 💗</button>
   </div>
 </section>
 
-<!-- PAGE 3 -->
 <section class="page" id="page3">
   <div class="glow g1"></div><div class="glow g2"></div>
-  <div class="flowers">
-    <div class="flower f1">🌷</div><div class="flower f2">🌸</div>
-    <div class="flower f3">🌷</div><div class="flower f4">🌸</div>
-  </div>
-
+  <div class="flowers"><div class="petal p1">🌷</div><div class="petal p2">🌸</div><div class="petal p3">🌷</div><div class="petal p4">🌸</div></div>
   <div class="card">
     <div class="eyebrow">In every language I can think of</div>
     <h2>I love you 💞</h2>
     <div class="love-list">
-      <div>I love you</div>
-      <div>Ek het jou lief</div>
-      <div>Te dua</div>
-      <div>Ana behibek</div>
-      <div>Yes kez sirumem</div>
-      <div>M’bi fe</div>
-      <div>Ami tomake bhalobashi</div>
-      <div>Ya tabe kahayu</div>
-      <div>Nahigugma ako kanimo</div>
-      <div>Obicham te</div>
-      <div>Soro lahn nhee ah</div>
-      <div>T’estimo</div>
-      <div>Tsi ge yu i</div>
-      <div>Ne mohotatse</div>
-      <div>Ndimakukonda</div>
-      <div>Ngo oiy ney a</div>
-      <div>Wo ai ni</div>
-      <div>U kamakutu nu</div>
-      <div>Ti tengu caru</div>
-      <div>Kisakihitin</div>
-      <div>Mi aime jou</div>
-      <div>Volim te</div>
-      <div>Miluji te</div>
-      <div>Jeg Elsker Dig</div>
-      <div>Ik hou van jou</div>
-      <div>Amin mela lle</div>
-      <div>Mi amas vin</div>
-      <div>Ma armastan sind</div>
-      <div>Afgreki’</div>
-      <div>Eg elski teg</div>
-      <div>Doset daram</div>
-      <div>Mahal kita</div>
-      <div>Mina rakastan sinua</div>
-      <div>Je t’aime, Je t’adore</div>
-      <div>Ik hald fan dy</div>
-      <div>Ta gra agam ort</div>
-      <div>Mikvarhar</div>
-      <div>Ich liebe dich</div>
-      <div>S’agapo</div>
-      <div>Hoo thunay prem karoo choo</div>
-      <div>Palangga ko ikaw</div>
-      <div>Aloha Au Ia`oe</div>
-      <div>Ani ohev otach</div>
-      <div>Ani ohev otcha</div>
-      <div>Guina higugma ko ikaw</div>
-      <div>Hum Tumhe Pyar Karte hae</div>
-      <div>Kuv hlub koj</div>
-      <div>Nu’ umi unangwa’ta</div>
-      <div>Szeretlek</div>
+      <div>I love you</div><div>Ek het jou lief</div><div>Te dua</div><div>Ana behibek</div><div>Yes kez sirumem</div><div>M’bi fe</div><div>Ami tomake bhalobashi</div><div>Ya tabe kahayu</div><div>Nahigugma ako kanimo</div><div>Obicham te</div><div>Soro lahn nhee ah</div><div>T’estimo</div><div>Tsi ge yu i</div><div>Ne mohotatse</div><div>Ndimakukonda</div><div>Ngo oiy ney a</div><div>Wo ai ni</div><div>U kamakutu nu</div><div>Ti tengu caru</div><div>Kisakihitin</div><div>Mi aime jou</div><div>Volim te</div><div>Miluji te</div><div>Jeg Elsker Dig</div><div>Ik hou van jou</div><div>Amin mela lle</div><div>Mi amas vin</div><div>Ma armastan sind</div><div>Afgreki’</div><div>Eg elski teg</div><div>Doset daram</div><div>Mahal kita</div><div>Mina rakastan sinua</div><div>Je t’aime, Je t’adore</div><div>Ik hald fan dy</div><div>Ta gra agam ort</div><div>Mikvarhar</div><div>Ich liebe dich</div><div>S’agapo</div><div>Hoo thunay prem karoo choo</div><div>Palangga ko ikaw</div><div>Aloha Au Ia`oe</div><div>Ani ohev otach</div><div>Ani ohev otcha</div><div>Guina higugma ko ikaw</div><div>Hum Tumhe Pyar Karte hae</div><div>Kuv hlub koj</div><div>Nu’ umi unangwa’ta</div><div>Szeretlek</div>
     </div>
     <div class="divider">🌷 ✦ 🌸 ✦ 🌷</div>
     <div class="final-line">Happy Birthday, Moti. 💞</div>
@@ -250,12 +156,98 @@
   <button id="b3" onclick="showPage(3)">🌸 3</button>
 </div>
 
+</div>
+
 <script>
-function showPage(n) {
-  document.querySelectorAll('.page').forEach((p,i) => p.classList.toggle('active', i === n-1));
-  document.querySelectorAll('.nav button').forEach((b,i) => b.classList.toggle('active', i === n-1));
-  window.scrollTo({top:0, behavior:'smooth'});
+/*
+  UNLOCK:
+  11 September 2026, 00:00:00 IST
+  IST is UTC+05:30, so this equals:
+  10 September 2026, 18:30:00 UTC
+*/
+const unlockTime = Date.parse("2026-09-10T18:30:00Z");
+
+const lock = document.getElementById("lock");
+const reveal = document.getElementById("reveal");
+const site = document.getElementById("site");
+
+let unlocked = false;
+
+function pad(n){
+  return String(n).padStart(2,"0");
+}
+
+function updateTimer(){
+  const remaining = unlockTime - Date.now();
+
+  if(remaining <= 0){
+    document.getElementById("d").textContent="00";
+    document.getElementById("h").textContent="00";
+    document.getElementById("m").textContent="00";
+    document.getElementById("s").textContent="00";
+    unlock();
+    return;
+  }
+
+  const totalSeconds = Math.floor(remaining / 1000);
+
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  document.getElementById("d").textContent = pad(days);
+  document.getElementById("h").textContent = pad(hours);
+  document.getElementById("m").textContent = pad(minutes);
+  document.getElementById("s").textContent = pad(seconds);
+}
+
+function unlock(){
+  if(unlocked) return;
+  unlocked = true;
+
+  lock.classList.add("hide");
+
+  setTimeout(()=>{
+    reveal.classList.add("show");
+  },700);
+
+  setTimeout(()=>{
+    reveal.style.transition="opacity 1.5s ease";
+    reveal.style.opacity="0";
+    site.classList.add("show");
+  },3500);
+
+  setTimeout(()=>{
+    reveal.style.display="none";
+  },5200);
+}
+
+function showPage(n){
+  document.querySelectorAll(".page").forEach((p,i)=>{
+    p.classList.toggle("active",i===n-1);
+  });
+
+  document.querySelectorAll(".nav button").forEach((b,i)=>{
+    b.classList.toggle("active",i===n-1);
+  });
+
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+/*
+  Important:
+  If the page is opened before the target time,
+  the main website is NOT shown.
+*/
+if(Date.now() < unlockTime){
+  site.style.display="none";
+  updateTimer();
+  setInterval(updateTimer,250);
+}else{
+  unlock();
 }
 </script>
+
 </body>
 </html>
